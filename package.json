@@ -1,14 +1,22 @@
 {
-  "name": "philippines-cooking",
+  "name": "philippines-recipe",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "run-p dev:*",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:client": "next dev",
+    "dev:aspida": "aspida --watch",
+    "prebuild": "npm run generate",
+    "generate": "run-p generate:*",
+    "generate:aspida": "aspida"
   },
   "dependencies": {
+    "@aspida/fetch": "^1.7.1",
+    "aspida": "^1.7.1",
+    "microcms-js-sdk": "^2.0.0",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -18,6 +26,7 @@
     "@types/react": "17.0.39",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
+    "npm-run-all": "^4.1.5",
     "typescript": "4.5.5"
   }
 }
