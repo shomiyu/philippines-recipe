@@ -71,8 +71,8 @@
 
 // export default Home
 
+import { apiClient } from "@/utils/apiClient";
 import Link from "next/link";
-import { apiClient } from "../utils/apiClient";
 
 export default function Home({ recipe }) {
   return (
