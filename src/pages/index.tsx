@@ -10,7 +10,7 @@ interface Props {
   recipe: MicroCMSListResponse<Recipe>;
 }
 
-const Home: NextPage<Props> = (props: Props) => {
+const Top: NextPage<Props> = (props: Props) => {
   return (
     <>
       <TopPage {...props} />
@@ -32,4 +32,4 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
   };
 };
 
-export default Home;
+export default Top;
