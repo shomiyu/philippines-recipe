@@ -1,0 +1,8 @@
+// @use "./styles/mixin";
+@use "function" as func;
+@use "variables" as var;
+@use "mixins" as mixin;
+
+.list {
+  color: var.$text-color-gray;
+}

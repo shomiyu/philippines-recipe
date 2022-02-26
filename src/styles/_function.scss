@@ -1,0 +1,16 @@
+/**
+ * 引数のfontSizeをremに変換する関数
+ * @param fontSize フォントサイズ
+ */
+@function fz($fontSize) {
+  @return $fontSize / 16 * 1rem;
+}
+
+/**
+ * 引数のfontSizeを元に指定されたpx数をemに変換する関数
+ * @param px 変換するpx数
+ * @param fontSize フォントサイズ
+ */
+@function em($px, $fontSize: 16) {
+  @return $px / $fontSize * 1em;
+}
