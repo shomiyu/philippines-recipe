@@ -1,20 +1,27 @@
+import { GetStaticProps, NextPage } from "next";
 import { apiClient } from "@/utils/apiClient";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { Category } from "@/api/category/types";
-import { GetStaticProps, NextPage } from "next";
+import { Recipe } from "@/api/recipe/types";
 
 interface Props {
   category: MicroCMSListResponse<Category>;
+  recipe: MicroCMSListResponse<Recipe>;
 }
 
 const Home: NextPage<Props> = (props: Props) => {
-  const { category } = props;
+  const { category, recipe } = props;
 
   return (
     <>
       <ul>
         {category.contents.map((cat) => (
           <li key={cat.id}>{cat.name}</li>
+        ))}
+      </ul>
+      <ul>
+        {recipe.contents.map((recipe) => (
+          <li key={recipe.id}>{recipe.title}</li>
         ))}
       </ul>
     </>
@@ -24,11 +31,13 @@ const Home: NextPage<Props> = (props: Props) => {
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props;
 }> => {
-  const data = await apiClient.category.$get();
+  const category = await apiClient.category.$get();
+  const recipe = await apiClient.recipe.$get();
 
   return {
     props: {
-      category: data,
+      category: category,
+      recipe: recipe,
     },
   };
 };
