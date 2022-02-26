@@ -3,7 +3,7 @@ import { apiClient } from "@/utils/apiClient";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { Category } from "@/api/category/types";
 import { Recipe } from "@/api/recipe/types";
-import style from "@/styles/Home.module.scss";
+import TopPage from "@/components/page/Top/index";
 
 interface Props {
   category: MicroCMSListResponse<Category>;
@@ -11,20 +11,9 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props: Props) => {
-  const { category, recipe } = props;
-
   return (
     <>
-      <ul className={style.list}>
-        {category.contents.map((cat) => (
-          <li key={cat.id}>{cat.name}</li>
-        ))}
-      </ul>
-      <ul>
-        {recipe.contents.map((recipe) => (
-          <li key={recipe.id}>{recipe.title}</li>
-        ))}
-      </ul>
+      <TopPage {...props} />
     </>
   );
 };

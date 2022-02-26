@@ -3,6 +3,10 @@
 @use "variables" as var;
 @use "mixins" as mixin;
 
+.header {
+  background-color: brown;
+}
+
 .list {
   color: var.$text-color-gray;
 }
