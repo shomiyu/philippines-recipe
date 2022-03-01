@@ -1,4 +1,4 @@
-import { Category } from "@/api/category/types";
+import type { Category } from '@/api/category/types';
 
 interface MaterialList {
   fieldId: string;

@@ -1,7 +1,7 @@
-import { MicroCMSListResponse } from "microcms-js-sdk";
-import { Category } from "@/api/category/types";
-import { Recipe } from "@/api/recipe/types";
-import style from "@/components/page/Top/Top.module.scss";
+import type { MicroCMSListResponse } from 'microcms-js-sdk';
+import type { Category } from '@/api/category/types';
+import type { Recipe } from '@/api/recipe/types';
+import style from '@/components/page/Top/Top.module.scss';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
