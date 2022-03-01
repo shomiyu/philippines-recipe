@@ -12,9 +12,7 @@ interface Props {
 export const TopPage = (props: Props): JSX.Element => {
   return (
     <>
-      <header className={style.header}>ヘッダー</header>
       <Top {...props} />
-      <footer>フッター</footer>
     </>
   );
 };
