@@ -1,0 +1,11 @@
+@use "@/styles/function" as func;
+@use "@/styles/variables" as var;
+@use "@/styles/mixins" as mixin;
+
+.header {
+  background-color: brown;
+}
+
+.list {
+  color: var.$text-color-gray;
+}

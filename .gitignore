@@ -35,4 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 # aspida
-./api/$api.ts
+src/api/*.ts

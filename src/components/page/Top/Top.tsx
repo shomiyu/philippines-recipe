@@ -1,14 +1,14 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { Category } from "@/api/category/types";
 import { Recipe } from "@/api/recipe/types";
-import style from "@/styles/Home.module.scss";
+import style from "@/components/page/Top/Top.module.scss";
 
 interface Props {
   category: MicroCMSListResponse<Category>;
   recipe: MicroCMSListResponse<Recipe>;
 }
 
-export const Top = (props: Props) => {
+export const Top = (props: Props): JSX.Element => {
   const { category, recipe } = props;
 
   return (
