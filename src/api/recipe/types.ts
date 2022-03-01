@@ -20,8 +20,9 @@ interface Thumbnail {
 }
 
 export type Recipe = {
-  title?: string;
-  tagalog?: string;
+  title: string;
+  tagalog: string;
+  thumbnail?: Thumbnail;
   category?: Category;
   time?: string;
   level?: string[];
