@@ -8,7 +8,7 @@ interface Props {
   recipe: MicroCMSListResponse<Recipe>;
 }
 
-export const Top = (props: Props) => {
+export const Top = (props: Props): JSX.Element => {
   const { category, recipe } = props;
 
   return (
