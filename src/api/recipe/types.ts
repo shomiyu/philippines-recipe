@@ -23,9 +23,11 @@ export type Recipe = {
   title?: string;
   tagalog?: string;
   category?: Category;
+  time?: string;
   level?: string[];
   overview?: string;
   introduction?: string;
+  serving?: string;
   materialList?: MaterialList[];
   point?: string;
   step?: Step[];
