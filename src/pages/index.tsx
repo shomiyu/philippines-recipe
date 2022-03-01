@@ -1,9 +1,9 @@
-import { GetStaticProps, NextPage } from "next";
-import { apiClient } from "@/utils/apiClient";
-import { MicroCMSListResponse } from "microcms-js-sdk";
-import { Category } from "@/api/category/types";
-import { Recipe } from "@/api/recipe/types";
-import { TopPage } from "@/components/page/Top";
+import type { GetStaticProps, NextPage } from 'next';
+import { apiClient } from '@/utils/apiClient';
+import type { MicroCMSListResponse } from 'microcms-js-sdk';
+import type { Category } from '@/api/category/types';
+import type { Recipe } from '@/api/recipe/types';
+import { TopPage } from '@/components/page/Top';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
