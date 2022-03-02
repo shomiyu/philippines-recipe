@@ -68,21 +68,27 @@ export const Top = ({ category, recipe }: Props): JSX.Element => {
 
       <section className='sectionPrimary'>
         <div className='containerLarge'>
-          <div className={style.cardListWrapper}>
-            <h2 className='visuallyHidden'>レシピ一覧</h2>
+          <div className={style.contentsWrapper}>
+            {recipe.contents.length > 0 && (
+              <ul className={style.tab}>
+                {category.contents.map((cat) => (
+                  <li
+                    key={cat.id}
+                    className={`${style.tabItem} ${style.isActive}`}
+                  >
+                    <Link href='/'>
+                      <a className={style.tabLink}>{cat.name}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
 
-            {recipe.contents.length < 1 ? (
-              <p>投稿がありません</p>
-            ) : (
-              <div>
-                {/* カテゴリ */}
-                <ul className={style.list}>
-                  {category.contents.map((cat) => (
-                    <li key={cat.id}>{cat.name}</li>
-                  ))}
-                </ul>
-
-                {/* レシピカード */}
+            <div className={style.cardListWrapper}>
+              <h2 className='visuallyHidden'>レシピ一覧</h2>
+              {recipe.contents.length < 1 ? (
+                <p>投稿がありません</p>
+              ) : (
                 <ul className={style.cardList}>
                   {recipe.contents.map((recipe) => (
                     <li key={recipe.id} className={style.card}>
@@ -128,8 +134,8 @@ export const Top = ({ category, recipe }: Props): JSX.Element => {
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </section>
