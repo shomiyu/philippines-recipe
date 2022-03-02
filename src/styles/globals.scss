@@ -1,5 +1,6 @@
 @use 'function' as func;
 @use 'variables' as var;
+@use 'mixins' as mixin;
 
 .visuallyHidden {
   position: absolute;
@@ -17,8 +18,13 @@
 }
 
 .sectionPrimary {
-  padding-top: func.em(120);
-  padding-bottom: func.em(120);
+  padding-top: func.em(80);
+  padding-bottom: func.em(80);
+
+  @include mixin.mq() {
+    padding-top: func.em(120);
+    padding-bottom: func.em(120);
+  }
 }
 
 .containerLarge {

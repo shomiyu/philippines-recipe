@@ -12,8 +12,12 @@
 }
 
 .introduction {
-  padding: func.em(80) 0;
+  padding: func.em(64) 0;
   background-color: var.$base-color-secondary;
+
+  @include mixin.mq() {
+    padding: func.em(80) 0;
+  }
 
   p + p {
     margin-top: func.em(16);
@@ -21,11 +25,15 @@
 }
 
 .cardListWrapper {
-  padding: func.em(64) func.em(40);
+  padding: func.em(64) func.em(24);
   border: 2px solid var.$border-color-main;
   border-radius: 4px;
   position: relative;
   background-color: var.$base-color-primary;
+
+  @include mixin.mq() {
+    padding: func.em(64) func.em(40);
+  }
 
   &::before,
   &::after {
@@ -59,14 +67,22 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
-  align-items: top;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: func.em(-16);
+
+  @include mixin.mq() {
+    margin-bottom: func.em(-24);
+  }
 }
 
 .card {
   width: 100%;
+  margin-bottom: func.em(16);
 
   @include mixin.mq() {
     width: calc((100% - #{func.em(24)}) / 2);
+    margin-bottom: func.em(24);
   }
 }
 
@@ -146,10 +162,14 @@
   text-align: right;
 
   .jaTitle {
-    font-size: func.fz(24);
+    font-size: func.fz(20);
     font-weight: bold;
     line-height: 1.7;
     border-bottom: 1px solid currentColor;
+
+    @include mixin.mq() {
+      font-size: func.fz(24);
+    }
   }
 
   .tlTitle {
