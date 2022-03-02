@@ -32,7 +32,9 @@ $text-color-light: palette.$palette-white-000;
 $color-body-background: $base-color-primary;
 
 // border
-$color-border-main: palette.$palette-gray-500;
+$border-color-main: palette.$palette-gray-900;
+$border-color-secondary: palette.$palette-gray-500;
+$border-color-light: palette.$palette-white-000;
 
 // -------------------------------------------
 // Font Size Settings

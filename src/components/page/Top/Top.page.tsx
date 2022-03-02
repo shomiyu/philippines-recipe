@@ -12,7 +12,9 @@ interface Props {
 export const TopPage = (props: Props): JSX.Element => {
   return (
     <>
-      <Top {...props} />
+      <main>
+        <Top {...props} />
+      </main>
     </>
   );
 };
