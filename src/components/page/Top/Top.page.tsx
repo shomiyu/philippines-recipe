@@ -3,6 +3,7 @@ import type { Category } from '@/api/category/types';
 import type { Recipe } from '@/api/recipe/types';
 import style from '@/components/page/Top/Top.module.scss';
 import { Top } from '@/components/page/Top/Top';
+import Footer from '@/components/common/Footer';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
@@ -15,6 +16,7 @@ export const TopPage = (props: Props): JSX.Element => {
       <main>
         <Top {...props} />
       </main>
+      <Footer />
     </>
   );
 };
