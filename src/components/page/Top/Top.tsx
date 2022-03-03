@@ -4,6 +4,7 @@ import type { Recipe } from '@/api/recipe/types';
 import style from '@/components/page/Top/Top.module.scss';
 import Link from 'next/link';
 import { Card } from '@/components/domain/Card';
+import { Tab } from '@/components/domain/Tab';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
@@ -70,20 +71,7 @@ export const Top = ({ category, recipe }: Props): JSX.Element => {
       <section className='sectionPrimary'>
         <div className='containerLarge'>
           <div className={style.contentsWrapper}>
-            {recipe.contents.length > 0 && (
-              <ul className={style.tab}>
-                {category.contents.map((cat) => (
-                  <li
-                    key={cat.id}
-                    className={`${style.tabItem} ${style.isActive}`}
-                  >
-                    <Link href='/'>
-                      <a className={style.tabLink}>{cat.name}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {recipe.contents.length > 0 && <Tab category={category} />}
 
             <div className={style.cardListWrapper}>
               <h2 className='visuallyHidden'>レシピ一覧</h2>

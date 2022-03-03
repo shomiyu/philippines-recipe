@@ -29,34 +29,6 @@
   flex-direction: row-reverse;
 }
 
-.tab {
-  list-style: none;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  margin: 8px 0 8px -10px;
-}
-
-.tabItem {
-  line-height: 1.5;
-  letter-spacing: 0.25em;
-  writing-mode: vertical-rl;
-  background-color: var.$base-color-primary;
-  margin-bottom: func.em(4);
-  position: relative;
-
-  &.isActive {
-    z-index: 1;
-  }
-}
-
-.tabLink {
-  display: inline-block;
-  border: 2px solid;
-  padding: func.em(24) func.em(16) func.em(16) func.em(20);
-  border-radius: 0 10px 10px 0;
-}
-
 .cardListWrapper {
   width: 100%;
   padding: func.em(64) func.em(24);
