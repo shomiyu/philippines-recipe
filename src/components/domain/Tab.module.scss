@@ -5,27 +5,44 @@
 .list {
   list-style: none;
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
   margin: 8px 0 8px -10px;
 }
 
 .item {
-  line-height: 1.5;
-  letter-spacing: 0.25em;
-  writing-mode: vertical-rl;
   background-color: var.$base-color-primary;
   margin-bottom: func.em(4);
   position: relative;
+  border-radius: 0 10px 10px 0;
 
   &.isActive {
+    font-weight: bold;
+    background-color: var.$main-color-primary;
     z-index: 1;
   }
 }
 
-.link {
+.button {
   display: inline-block;
   border: 2px solid;
   padding: func.em(24) func.em(16) func.em(16) func.em(20);
   border-radius: 0 10px 10px 0;
+  background-color: transparent;
+  transition: 0.3s background-color ease-in-out;
+  appearance: none;
+
+  &:hover {
+    background-color: var.$key-color-light-purple;
+  }
+
+  &:focus {
+    outline-width: 2px;
+  }
+}
+
+.text {
+  line-height: 1.5;
+  letter-spacing: 0.25em;
+  writing-mode: vertical-rl;
 }

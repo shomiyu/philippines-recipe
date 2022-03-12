@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import type { MicroCMSListResponse } from 'microcms-js-sdk';
 import type { Category } from '@/api/category/types';
 import type { Recipe } from '@/api/recipe/types';
 import style from '@/components/page/Top/Top.module.scss';
 import Link from 'next/link';
-import { Card } from '@/components/domain/Card';
 import { Tab } from '@/components/domain/Tab';
+import { TabPanel } from '@/components/domain/TabPanel';
+import { useCallback, useEffect } from 'react';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
@@ -12,6 +14,38 @@ interface Props {
 }
 
 export const Top = ({ category, recipe }: Props): JSX.Element => {
+  const categoryArray = category.contents.map((cat) => {
+    return cat.id;
+  });
+
+  const recipePostsArray = categoryArray.map((item) => {
+    if (item !== 'all') {
+      const contents = recipe.contents.filter((data) => {
+        return data.category?.id === item;
+      });
+
+      return {
+        id: item,
+        contents: contents,
+      };
+    } else {
+      return {
+        id: item,
+        contents: recipe.contents,
+      };
+    }
+  });
+
+  const [tabId, setTabId] = useState('panel-all');
+
+  const handleChangeTabId = useCallback((nextTabId: string) => {
+    setTabId(nextTabId);
+  }, []);
+
+  useEffect(() => {
+    setTabId('panel-all');
+  }, [recipe]);
+
   return (
     <>
       <h1>
@@ -71,28 +105,19 @@ export const Top = ({ category, recipe }: Props): JSX.Element => {
       <section className='sectionPrimary'>
         <div className='containerLarge'>
           <div className={style.contentsWrapper}>
-            {recipe.contents.length > 0 && <Tab category={category} />}
+            {recipe.contents.length > 0 && (
+              <Tab
+                category={category}
+                tabId={tabId}
+                onChangeTabId={handleChangeTabId}
+              />
+            )}
 
-            <div className={style.cardListWrapper}>
-              <h2 className='visuallyHidden'>レシピ一覧</h2>
-              {recipe.contents.length < 1 ? (
-                <p>投稿がありません</p>
-              ) : (
-                <ul className={style.cardList}>
-                  {recipe.contents.map((recipe) => (
-                    <li key={recipe.id} className={style.card}>
-                      <Card
-                        id={recipe.id}
-                        title={recipe.title}
-                        tagalog={recipe.tagalog}
-                        thumbnail={recipe.thumbnail}
-                        level={recipe.level}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <TabPanel
+              recipePostsArray={recipePostsArray}
+              tabId={tabId}
+              onChangeTabId={handleChangeTabId}
+            />
           </div>
         </div>
       </section>
