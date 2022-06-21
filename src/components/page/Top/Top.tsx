@@ -4,9 +4,9 @@ import type { Category } from '@/api/category/types';
 import type { Recipe } from '@/api/recipe/types';
 import style from '@/components/page/Top/Top.module.scss';
 import Link from 'next/link';
-import { Tab } from '@/components/domain/Tab';
-import { TabPanel } from '@/components/domain/TabPanel';
-import { useCallback, useEffect } from 'react';
+import { Tab } from '@/components/domain/top/Tab';
+import { TabPanel } from '@/components/domain/top/TabPanel';
+import { useCallback } from 'react';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
@@ -14,40 +14,30 @@ interface Props {
 }
 
 export const Top = ({ category, recipe }: Props): JSX.Element => {
-  const categoryArray = category.contents.map((cat) => {
-    return cat.id;
-  });
-
-  const recipePostsArray = categoryArray.map((item) => {
-    if (item !== 'all') {
-      const contents = recipe.contents.filter((data) => {
-        return data.category?.id === item;
-      });
-
+  const recipePosts = category.contents.map((category) => {
+    if (category.id !== 'all') {
       return {
-        id: item,
-        contents: contents,
+        id: category.id,
+        contents: recipe.contents.filter(
+          (data) => data.category?.id === category.id,
+        ),
       };
     } else {
       return {
-        id: item,
+        id: category.id,
         contents: recipe.contents,
       };
     }
   });
 
-  const [tabId, setTabId] = useState('panel-all');
+  const [selectedTabId, setTabId] = useState('panel-all');
 
   const handleChangeTabId = useCallback((nextTabId: string) => {
     setTabId(nextTabId);
   }, []);
 
-  useEffect(() => {
-    setTabId('panel-all');
-  }, [recipe]);
-
   return (
-    <>
+    <main>
       <h1>
         <Link href='/'>
           <a>
@@ -108,19 +98,19 @@ export const Top = ({ category, recipe }: Props): JSX.Element => {
             {recipe.contents.length > 0 && (
               <Tab
                 category={category}
-                tabId={tabId}
+                selectedTabId={selectedTabId}
                 onChangeTabId={handleChangeTabId}
               />
             )}
 
             <TabPanel
-              recipePostsArray={recipePostsArray}
-              tabId={tabId}
+              recipePosts={recipePosts}
+              selectedTabId={selectedTabId}
               onChangeTabId={handleChangeTabId}
             />
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 };
