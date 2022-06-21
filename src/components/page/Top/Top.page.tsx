@@ -7,7 +7,7 @@ import { Footer } from '@/components/common/footer/Footer';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
-  recipe: MicroCMSListResponse<Recipe>;
+  recipes: MicroCMSListResponse<Recipe>;
 }
 
 export const TopPage = (props: Props): JSX.Element => {

@@ -7,7 +7,7 @@ import { TopPage } from '@/components/page/Top';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
-  recipe: MicroCMSListResponse<Recipe>;
+  recipes: MicroCMSListResponse<Recipe>;
 }
 
 const Top: NextPage<Props> = (props: Props) => {
@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
   return {
     props: {
       category: category,
-      recipe: recipe,
+      recipes: recipe,
     },
   };
 };
