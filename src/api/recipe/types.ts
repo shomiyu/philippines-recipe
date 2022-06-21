@@ -1,4 +1,5 @@
-import { Category } from "@/api/category/types";
+import type { Category } from '@/api/category/types';
+import type { MicroCMSContentId, MicroCMSImage } from 'microcms-js-sdk';
 
 interface MaterialList {
   fieldId: string;
@@ -10,19 +11,14 @@ interface Step {
   fieldId: string;
   title?: string;
   text: string;
-  thumbnail?: Thumbnail;
-}
-
-interface Thumbnail {
-  url: string;
-  height: number;
-  width: number;
+  thumbnail?: MicroCMSImage;
 }
 
 export type Recipe = {
-  title?: string;
-  tagalog?: string;
-  category?: Category;
+  title: string;
+  tagalog: string;
+  thumbnail?: MicroCMSImage;
+  category?: Category & MicroCMSContentId;
   time?: string;
   level?: string[];
   overview?: string;

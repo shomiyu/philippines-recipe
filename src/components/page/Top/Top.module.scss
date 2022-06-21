@@ -1,11 +1,30 @@
-@use "@/styles/function" as func;
-@use "@/styles/variables" as var;
-@use "@/styles/mixins" as mixin;
+@use '@/styles/function' as func;
+@use '@/styles/variables' as var;
+@use '@/styles/mixins' as mixin;
 
-.header {
-  background-color: brown;
+.slider {
+  overflow: hidden;
 }
 
-.list {
-  color: var.$text-color-gray;
+.sliderList {
+  list-style: none;
+  display: flex;
+}
+
+.introduction {
+  padding: func.em(64) 0;
+  background-color: var.$base-color-secondary;
+
+  @include mixin.mq() {
+    padding: func.em(80) 0;
+  }
+
+  p + p {
+    margin-top: func.em(16);
+  }
+}
+
+.contentsWrapper {
+  display: flex;
+  flex-direction: row-reverse;
 }

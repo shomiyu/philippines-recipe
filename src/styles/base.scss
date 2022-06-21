@@ -1,4 +1,4 @@
-@use "variables" as var;
+@use 'variables' as var;
 
 html {
   box-sizing: border-box;
@@ -46,4 +46,11 @@ textarea {
   max-width: 100%;
   font-family: inherit;
   font-size: 100%;
+}
+
+a,
+button {
+  &:focus {
+    outline: 4px solid var.$key-color-purple;
+  }
 }
