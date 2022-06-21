@@ -1,6 +1,6 @@
-@use "function" as func;
-@use "palette";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Quicksand:wght@700&display=swap");
+@use 'function' as func;
+@use 'palette';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Quicksand:wght@700&display=swap');
 
 // -------------------------------------------
 // Color Settings
@@ -8,18 +8,23 @@
 
 // base
 $base-color-primary: palette.$palette-white-000;
-$base-color-secondary: palette.$palette-brown-100;
+$base-color-secondary: palette.$palette-pink-300;
 
 // main
-$main-color-primary: palette.$palette-brown-900;
+$main-color-primary: palette.$palette-pink-500;
 
 // key
 $key-color-red: palette.$palette-red-900;
-$key-color-brown: palette.$palette-brown-900;
+$key-color-pink: palette.$palette-pink-500;
+$key-color-yellow: palette.$palet-yellow-300;
+$key-color-light-purple: palette.$palette-purple-300;
+$key-color-purple: palette.$palette-purple-500;
+$key-color-light-brown: palette.$palette-brown-300;
+$key-color-brown: palette.$palette-brown-500;
 
 // text
 $text-color-primary: palette.$palette-gray-900;
-$text-color-accent: palette.$palette-brown-900;
+$text-color-accent: palette.$palette-pink-500;
 $text-color-gray: palette.$palette-gray-700;
 $text-color-light: palette.$palette-white-000;
 
@@ -27,7 +32,9 @@ $text-color-light: palette.$palette-white-000;
 $color-body-background: $base-color-primary;
 
 // border
-$color-border-main: palette.$palette-gray-500;
+$border-color-main: palette.$palette-gray-900;
+$border-color-secondary: palette.$palette-gray-500;
+$border-color-light: palette.$palette-white-000;
 
 // -------------------------------------------
 // Font Size Settings
@@ -46,17 +53,17 @@ $font-size-xs: calc(#{$font-size-base} - #{func.fz(4)}); // 12
 // -------------------------------------------
 
 // Typeface
-$base-font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3",
-  "Hiragino Kaku Gothic Pro", "Osaka", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック",
-  "MS P Gothic", sans-serif;
+$base-font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3',
+  'Hiragino Kaku Gothic Pro', 'Osaka', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック',
+  'MS P Gothic', sans-serif;
 
 // -------------------------------------------
 // Break Points
 // -------------------------------------------
 $breakpoints: (
-  "sm": 480px,
-  "md": 768px,
-  "lg": 1024px,
-  "xl": 1200px,
-  "xxl": 1440px,
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px,
+  'xxl': 1440px,
 ) !default;
