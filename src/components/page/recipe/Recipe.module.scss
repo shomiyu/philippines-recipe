@@ -1,0 +1,162 @@
+@use '@/styles/function' as func;
+@use '@/styles/variables' as var;
+@use '@/styles/mixins' as mixin;
+
+.mainVisual {
+  img {
+    width: 100%;
+    height: 436px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.introductionSection {
+  padding: func.em(80) 0 func.em(80);
+}
+
+.container {
+  width: 90%;
+  max-width: 760px;
+  margin: auto;
+}
+
+.title {
+  line-height: 1;
+
+  [lang='ja'] {
+    font-size: func.fz(40);
+    line-height: 1.7;
+    display: block;
+    padding-bottom: func.em(4, 40);
+    border-bottom: 1px solid #ddd;
+    margin-bottom: func.em(8, 40);
+  }
+
+  [lang='tl'] {
+    font-size: func.fz(18);
+    font-family: var.$font-family-english;
+    font-weight: normal;
+    line-height: 1;
+    color: var.$text-color-gray;
+  }
+}
+
+.metaData {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: func.em(16);
+}
+
+.level {
+  margin-right: func.em(24);
+}
+
+.time {
+  font-family: var.$font-family-english;
+  font-size: func.fz(14);
+  display: inline-block;
+  margin-left: func.em(4, 14);
+}
+
+.introduction {
+  margin-top: func.em(40);
+}
+
+.note {
+  border: 2px solid;
+  width: 100%;
+  max-width: 560px;
+  padding: func.em(24) func.em(64) func.em(40) func.em(24);
+  margin: func.em(64) auto 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 40px;
+    background-image: linear-gradient(
+      to bottom,
+      var.$border-color-main,
+      var.$border-color-main 8px,
+      transparent 8px,
+      transparent 8px
+    );
+    background-size: 1px 12px;
+    background-position: left bottom;
+    background-repeat: repeat-y;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 0;
+    width: 40px;
+    background-image: url('/images/circle.svg');
+    background-repeat: repeat-y;
+    background-size: 60%;
+    background-position: center top;
+  }
+}
+
+.noteTitle {
+  font-size: func.fz(20);
+  margin-bottom: func.em(16, 20);
+}
+
+.serving {
+  font-size: func.fz(14);
+  font-weight: normal;
+}
+
+.materialList {
+  border-top: 3px solid var.$main-color-primary;
+  border-bottom: 3px solid var.$main-color-primary;
+}
+
+.materialListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: func.em(8) func.em(16);
+  min-height: 40px;
+  background-image: linear-gradient(
+    to right,
+    var.$main-color-primary,
+    var.$main-color-primary 8px,
+    transparent 8px,
+    transparent 8px
+  );
+  background-size: 12px 1px;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+
+  &:last-child {
+    background-image: inherit;
+  }
+
+  &:nth-child(odd) {
+    background-color: var.$base-color-secondary;
+  }
+}
+
+.materialListTitle {
+  flex-basis: 50%;
+}
+
+.materialListAmount {
+  flex-basis: calc(50% - #{func.em(16)});
+}
+
+.point {
+  font-family: var.$font-family-accent;
+  padding: func.em(24) func.em(16) 0;
+}

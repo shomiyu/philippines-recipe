@@ -23,7 +23,7 @@ export type Recipe = {
   level?: string[];
   overview?: string;
   introduction?: string;
-  serving?: string;
+  serving?: number;
   materialList?: MaterialList[];
   point?: string;
   step?: Step[];
