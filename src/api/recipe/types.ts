@@ -27,4 +27,6 @@ export type Recipe = {
   materialList?: MaterialList[];
   point?: string;
   step?: Step[];
+  eating?: string;
+  comment?: string;
 };
