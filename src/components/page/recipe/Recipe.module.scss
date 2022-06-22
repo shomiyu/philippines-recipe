@@ -309,7 +309,11 @@
 
 // comment
 .commentSection {
-  padding: func.em(160) 0 func.em(80);
+  padding: func.em(80) 0;
+
+  &.hasSpace {
+    padding-top: func.em(160);
+  }
 }
 
 .comment {

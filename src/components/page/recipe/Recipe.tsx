@@ -129,7 +129,11 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
       </section>
 
       {recipe.comment && (
-        <section className={style.commentSection}>
+        <section
+          className={`${style.commentSection} ${
+            recipe.eating ? style.hasSpace : ''
+          }`}
+        >
           <div className={style.container}>
             <h2 className={style.primaryHeading}>comment</h2>
             <p className={style.comment}>{recipe.comment}</p>
