@@ -34,11 +34,11 @@ export const getStaticProps: GetStaticProps = async ({
   props: Props;
 }> => {
   const paramsId = params?.id?.toString() ?? '';
-  const recipes = await apiClient.recipe._contentId(paramsId).$get();
+  const recipe = await apiClient.recipe._id(paramsId).$get();
 
   return {
     props: {
-      recipe: recipes,
+      recipe: recipe,
     },
   };
 };

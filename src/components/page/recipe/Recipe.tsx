@@ -7,7 +7,7 @@ interface Props {
 export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
   return (
     <>
-      <p>レシピ</p>
+      <p>{recipe.title}</p>
     </>
   );
 };
