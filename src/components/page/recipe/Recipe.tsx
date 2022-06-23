@@ -1,5 +1,6 @@
 import type { Recipe } from '@/api/recipe/types';
 import { StarRate } from '@/components/common/StarRate/StarRate';
+import { StepList } from '@/components/domain/recipe/StepList';
 import style from '@/components/page/Recipe/Recipe.module.scss';
 
 interface Props {
@@ -88,36 +89,7 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
       <section className={style.cookingSection}>
         <div className={`${style.container} ${style.cookingContainer}`}>
           <h2 className={style.primaryHeading}>how to cook</h2>
-          <ol className={style.stepList}>
-            {recipe.step?.map((step, index) => (
-              <li key={index} className={style.stepItem}>
-                <section className={style.stepInner}>
-                  <div className={style.stepContents}>
-                    <h3 className={style.stepTitle}>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </div>
-                  <figure className={style.stepThumbnail}>
-                    {step.thumbnail?.url ? (
-                      <img
-                        src={step.thumbnail?.url}
-                        alt=''
-                        width='246'
-                        height='152'
-                      />
-                    ) : (
-                      <img
-                        src='/images/no_image.jpg'
-                        alt=''
-                        width='246'
-                        height='152'
-                      />
-                    )}
-                  </figure>
-                </section>
-              </li>
-            ))}
-          </ol>
-
+          <StepList step={recipe.step ?? []} />
           {recipe.eating && (
             <div className={style.tapeNote}>
               <p className={style.eatingTextBox}>
