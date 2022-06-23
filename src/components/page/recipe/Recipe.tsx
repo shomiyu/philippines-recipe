@@ -1,5 +1,6 @@
 import type { Recipe } from '@/api/recipe/types';
 import { StarRate } from '@/components/common/StarRate/StarRate';
+import { Note } from '@/components/domain/recipe/Note';
 import { StepList } from '@/components/domain/recipe/StepList';
 import style from '@/components/page/Recipe/Recipe.module.scss';
 
@@ -51,37 +52,11 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
           )}
 
           {(recipe.materialList?.length ?? 0) >= 1 && (
-            <div className={style.note}>
-              <section>
-                <div>
-                  <h2 className={style.noteTitle}>
-                    材料
-                    <span className={style.serving}>
-                      （{recipe.serving}人分）
-                    </span>
-                  </h2>
-                  <dl className={style.materialList}>
-                    {recipe.materialList?.map((item, index) => (
-                      <div key={index} className={style.materialListItem}>
-                        <dt className={style.materialListTitle}>{item.name}</dt>
-                        <dd className={style.materialListAmount}>
-                          {item.quantity}
-                        </dd>
-                      </div>
-                    ))}
-                    {(recipe.materialList?.length ?? 0) % 2 == 0 && (
-                      <div className={style.materialListItem}>
-                        <dt></dt>
-                        <dd></dd>
-                      </div>
-                    )}
-                  </dl>
-                  {recipe.point && (
-                    <p className={style.point}>{recipe.point}</p>
-                  )}
-                </div>
-              </section>
-            </div>
+            <Note
+              serving={recipe.serving}
+              materialList={recipe.materialList}
+              point={recipe.point}
+            />
           )}
         </div>
       </section>

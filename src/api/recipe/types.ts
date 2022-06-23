@@ -1,13 +1,13 @@
 import type { Category } from '@/api/category/types';
 import type { MicroCMSContentId, MicroCMSImage } from 'microcms-js-sdk';
 
-interface MaterialList {
+export interface MaterialList {
   fieldId: string;
   name: string;
   quantity: string;
 }
 
-interface Step {
+export interface Step {
   fieldId: string;
   title?: string;
   text: string;
