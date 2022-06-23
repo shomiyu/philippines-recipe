@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import style from './Card.module.scss';
 import type { MicroCMSImage } from 'microcms-js-sdk';
+import { StarRate } from '@/components/common/StarRate/StarRate';
 
 interface Props {
   id: string;
@@ -41,7 +42,10 @@ export const Card = ({
               />
             )}
           </figure>
-          {level && <p className={style.level}>{level}</p>}
+          <StarRate
+            className={style.level}
+            level={level?.toString() ?? 'easy'}
+          />
           <div className={style.title}>
             <p className={style.jaTitle}>{title}</p>
             <p lang='tl' className={style.tlTitle}>

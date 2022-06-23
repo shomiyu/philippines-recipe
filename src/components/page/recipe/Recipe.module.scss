@@ -5,14 +5,22 @@
 .mainVisual {
   img {
     width: 100%;
-    height: 436px;
+    height: 320px;
     object-fit: cover;
     object-position: center;
+
+    @include mixin.mq() {
+      height: 436px;
+    }
   }
 }
 
 .introductionSection {
-  padding: func.em(80) 0 func.em(80);
+  padding: func.em(40) 0 func.em(64);
+
+  @include mixin.mq() {
+    padding: func.em(80) 0;
+  }
 }
 
 .container {
@@ -23,30 +31,47 @@
 }
 
 .primaryHeading {
-  font-size: func.fz(32);
+  font-size: func.fz(28);
   font-family: var.$font-family-title;
   text-transform: capitalize;
-  margin-bottom: func.em(40, 32);
+  margin-bottom: func.em(16, 28);
+
+  @include mixin.mq() {
+    font-size: func.fz(32);
+    margin-bottom: func.em(40, 32);
+  }
 }
 
 .title {
   line-height: 1;
 
   [lang='ja'] {
-    font-size: func.fz(40);
+    font-size: func.fz(28);
     line-height: 1.7;
     display: block;
-    padding-bottom: func.em(4, 40);
+    padding-bottom: func.em(4, 28);
     border-bottom: 1px solid #ddd;
-    margin-bottom: func.em(8, 40);
+    margin-bottom: func.em(8, 28);
+
+    @include mixin.mq() {
+      font-size: func.fz(40);
+      padding-bottom: func.em(4, 40);
+      margin-bottom: func.em(8, 40);
+    }
   }
 
   [lang='tl'] {
-    font-size: func.fz(18);
-    font-family: var.$font-family-english;
+    font-size: func.fz(14);
+    font-family: var.$font-family-accent;
     font-weight: normal;
     line-height: 1;
     color: var.$text-color-gray;
+    display: inherit;
+    margin-top: func.em(8, 14);
+
+    @include mixin.mq() {
+      font-size: func.fz(18);
+    }
   }
 }
 
@@ -67,7 +92,7 @@
 }
 
 .time {
-  font-family: var.$font-family-english;
+  font-family: var.$font-family-accent;
   font-size: func.fz(14);
   display: inline-block;
   margin-left: func.em(4, 14);
@@ -78,12 +103,18 @@
 }
 
 .note {
-  border: 2px solid;
   width: 100%;
   max-width: 560px;
-  padding: func.em(24) func.em(64) func.em(40) func.em(24);
-  margin: func.em(64) auto 0;
+  padding: func.em(16) func.em(40) func.em(24) func.em(16);
+  margin: func.em(40) auto 0;
+  border: 2px solid;
+  border-radius: 2px;
   position: relative;
+
+  @include mixin.mq() {
+    padding: func.em(24) func.em(64) func.em(40) func.em(24);
+    margin: func.em(64) auto 0;
+  }
 
   &:before {
     content: '';
@@ -122,8 +153,13 @@
 }
 
 .noteTitle {
-  font-size: func.fz(20);
-  margin-bottom: func.em(16, 20);
+  font-size: func.fz(18);
+  margin-bottom: func.em(8, 18);
+
+  @include mixin.mq() {
+    font-size: func.fz(20);
+    margin-bottom: func.em(16, 20);
+  }
 }
 
 .serving {
@@ -132,15 +168,20 @@
 }
 
 .materialList {
+  font-size: func.fz(14);
   border-top: 3px solid var.$main-color-primary;
   border-bottom: 3px solid var.$main-color-primary;
+
+  @include mixin.mq() {
+    font-size: func.fz(16);
+  }
 }
 
 .materialListItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: func.em(8) func.em(16);
+  padding: func.em(4) func.em(8);
   min-height: 40px;
   background-image: linear-gradient(
     to right,
@@ -153,6 +194,10 @@
   background-position: left bottom;
   background-repeat: repeat-x;
 
+  @include mixin.mq() {
+    padding: func.em(8) func.em(16);
+  }
+
   &:last-child {
     background-image: inherit;
   }
@@ -163,22 +208,30 @@
 }
 
 .materialListTitle {
-  flex-basis: 50%;
+  flex-basis: 45%;
 }
 
 .materialListAmount {
-  flex-basis: calc(50% - #{func.em(16)});
+  flex-basis: calc(55% - #{func.em(16)});
 }
 
 .point {
   font-family: var.$font-family-accent;
-  padding: func.em(24) func.em(16) 0;
+  padding: func.em(8) func.em(8) 0;
+
+  @include mixin.mq() {
+    padding: func.em(24) func.em(16) 0;
+  }
 }
 
 // how to cook
 .cookingSection {
-  padding: func.em(64) 0 func.em(120);
+  padding: func.em(40) 0 func.em(120);
   background-color: var.$base-color-secondary;
+
+  @include mixin.mq() {
+    padding: func.em(64) 0 func.em(120);
+  }
 }
 
 .cookingContainer {
@@ -198,15 +251,23 @@
   &::before {
     background-image: url('/images/clip_purple.svg');
     top: calc(#{func.em(-64)} - 13px);
-    right: 0;
+    right: 30px;
     transform: rotate(-9deg);
+
+    @include mixin.mq() {
+      right: 0;
+    }
   }
 
   &::after {
     background-image: url('/images/clip_light_purple.svg');
     top: calc(#{func.em(-64)} + 10px);
-    right: -36px;
+    right: 0;
     transform: rotate(19deg);
+
+    @include mixin.mq() {
+      right: -30px;
+    }
   }
 }
 
@@ -254,30 +315,63 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-direction: column;
+
+  @include mixin.mq() {
+    flex-direction: row;
+  }
 }
 
 .stepContents {
-  width: calc(100% - 246px - #{func.em(24)});
+  width: 100%;
   padding-top: func.em(16);
-  padding-left: func.em(32);
+
+  @include mixin.mq() {
+    width: calc(100% - 246px - #{func.em(24)});
+    padding-top: func.em(16);
+    padding-left: func.em(32);
+  }
 }
 
 .stepTitle {
   font-size: func.fz(18);
   font-weight: bold;
-  margin-bottom: func.em(8, 18);
+  padding-left: func.em(24, 18);
+  margin-bottom: func.em(16, 18);
+
+  @include mixin.mq() {
+    padding-left: 0;
+    margin-bottom: func.em(8, 18);
+  }
 }
 
 .stepThumbnail {
-  flex-basis: 246px;
+  width: 100%;
+  margin-top: func.em(24);
+
+  @include mixin.mq() {
+    flex-basis: 246px;
+    margin-top: 0;
+  }
+
+  img {
+    width: 100%;
+  }
 }
 
 .tapeNote {
   display: inline-block;
+  max-width: 320px;
+  width: 85%;
   position: absolute;
   bottom: -100px;
-  right: -30px;
-  transform: translateY(100%);
+  right: 50%;
+  transform: translate(50%, 100%);
+
+  @include mixin.mq() {
+    right: -15px;
+    transform: translateY(100%);
+  }
 
   &::before,
   &::after {
@@ -307,6 +401,7 @@
 
 .eatingTextBox {
   display: inline-block;
+  width: 100%;
   transform: rotate(2deg);
   position: relative;
   z-index: 1;
@@ -343,7 +438,11 @@
 
 // comment
 .commentSection {
-  padding: func.em(80) 0;
+  padding: func.em(40) 0;
+
+  @include mixin.mq() {
+    padding: func.em(80) 0;
+  }
 
   &.hasSpace {
     padding-top: func.em(160);

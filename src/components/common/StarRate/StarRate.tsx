@@ -2,11 +2,12 @@ import style from './StarRate.module.scss';
 
 interface Props {
   level: string;
+  className?: string;
 }
 
-export const StarRate = ({ level }: Props): JSX.Element => {
+export const StarRate = ({ level, className }: Props): JSX.Element => {
   return (
-    <div className={style.starRate}>
+    <div className={`${style.starRate} ${className ?? ''}`}>
       <svg
         width='18'
         height='18'
