@@ -86,7 +86,7 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
       </section>
 
       <section className={style.cookingSection}>
-        <div className={style.container}>
+        <div className={`${style.container} ${style.cookingContainer}`}>
           <h2 className={style.primaryHeading}>how to cook</h2>
           <ol className={style.stepList}>
             {recipe.step?.map((step, index) => (

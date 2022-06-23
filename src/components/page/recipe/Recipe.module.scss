@@ -178,8 +178,36 @@
 // how to cook
 .cookingSection {
   padding: func.em(64) 0 func.em(120);
-  position: relative;
   background-color: var.$base-color-secondary;
+}
+
+.cookingContainer {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 54px;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+  }
+
+  &::before {
+    background-image: url('/images/clip_purple.svg');
+    top: calc(#{func.em(-64)} - 13px);
+    right: 0;
+    transform: rotate(-9deg);
+  }
+
+  &::after {
+    background-image: url('/images/clip_light_purple.svg');
+    top: calc(#{func.em(-64)} + 10px);
+    right: -36px;
+    transform: rotate(19deg);
+  }
 }
 
 .stepList {
