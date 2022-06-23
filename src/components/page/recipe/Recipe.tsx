@@ -1,6 +1,6 @@
 import type { Recipe } from '@/api/recipe/types';
+import { StarRate } from '@/components/common/StarRate/StarRate';
 import style from '@/components/page/Recipe/Recipe.module.scss';
-import { setPriority } from 'os';
 
 interface Props {
   recipe: Recipe;
@@ -26,12 +26,12 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
 
           {((recipe.level?.length ?? 0) >= 1 || recipe.time) && (
             <div className={style.metaData}>
-              <p className={style.level}>
+              <div className={style.level}>
                 <span className='visuallyHidden'>難易度</span>
-                {recipe.level}
-              </p>
+                <StarRate level={recipe.level?.toString() ?? 'easy'} />
+              </div>
               {recipe.time && (
-                <p>
+                <p className={style.timeWrapper}>
                   <span className='visuallyHidden'>所要時間</span>
                   <img
                     src='/images/icon_hourglass.svg'
