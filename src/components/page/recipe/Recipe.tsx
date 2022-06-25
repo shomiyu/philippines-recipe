@@ -3,6 +3,7 @@ import { StarRate } from '@/components/common/StarRate/StarRate';
 import { Note } from '@/components/domain/recipe/Note';
 import { StepList } from '@/components/domain/recipe/StepList';
 import style from '@/components/page/Recipe/Recipe.module.scss';
+import cx from 'classnames';
 
 interface Props {
   recipe: Recipe;
@@ -62,7 +63,7 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
       </section>
 
       <section className={style.cookingSection}>
-        <div className={`${style.container} ${style.cookingContainer}`}>
+        <div className={cx(style.container, style.cookingContainer)}>
           <h2 className={style.primaryHeading}>how to cook</h2>
           <StepList step={recipe.step ?? []} />
           {recipe.eating && (
@@ -77,9 +78,10 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
 
       {recipe.comment && (
         <section
-          className={`${style.commentSection} ${
-            recipe.eating ? style.hasSpace : ''
-          }`}
+          className={cx(
+            style.commentSection,
+            recipe.eating ? style.hasSpace : '',
+          )}
         >
           <div className={style.container}>
             <h2 className={style.primaryHeading}>comment</h2>

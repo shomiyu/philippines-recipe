@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import type { Category } from '@/api/category/types';
 import type { MicroCMSListResponse } from 'microcms-js-sdk';
 import style from './Tab.module.scss';
+import cx from 'classnames';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
@@ -27,15 +28,17 @@ export const Tab = ({
       {category.contents.map((cat) => (
         <li
           key={cat.id}
-          className={`${style.item} ${
-            selectedTabId === `panel-${cat.id}` ? style.isActive : ''
-          }`}
+          className={cx(
+            style.item,
+            selectedTabId === `panel-${cat.id}` ? style.isActive : '',
+          )}
         >
           <button
             type='button'
-            className={`${style.button} ${
-              selectedTabId === `panel-${cat.id}` ? style.isActive : ''
-            }`}
+            className={cx(
+              style.button,
+              selectedTabId === `panel-${cat.id}` ? style.isActive : '',
+            )}
             data-index={cat.id}
             role='tab'
             aria-controls={`panel-${cat.id}`}

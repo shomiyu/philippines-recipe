@@ -1,4 +1,5 @@
 import style from './StarRate.module.scss';
+import cx from 'classnames';
 
 interface Props {
   level: string;
@@ -7,7 +8,7 @@ interface Props {
 
 export const StarRate = ({ level, className }: Props): JSX.Element => {
   return (
-    <div className={`${style.starRate} ${className ?? ''}`}>
+    <div className={cx(style.starRate, className ?? '')}>
       <svg
         width='18'
         height='18'

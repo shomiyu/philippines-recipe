@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Card.module.scss';
 import type { MicroCMSImage } from 'microcms-js-sdk';
 import { StarRate } from '@/components/common/StarRate/StarRate';
+import cx from 'classnames';
 
 interface Props {
   id: string;
@@ -24,7 +25,7 @@ export const Card = ({
       <a className={style.link}>
         <div>
           <figure
-            className={`${style.thumbnail} ${!thumbnail ? style.noimage : ''}`}
+            className={cx(style.thumbnail, !thumbnail ? style.noimage : '')}
           >
             {thumbnail ? (
               <img

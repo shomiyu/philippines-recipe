@@ -2,6 +2,7 @@ import React from 'react';
 import type { Recipe } from '@/api/recipe/types';
 import { Card } from '@/components/domain/top/Card';
 import style from './TabPanel.module.scss';
+import cx from 'classnames';
 
 interface RecipePost extends Recipe {
   id: string;
@@ -31,9 +32,10 @@ export const TabPanel = ({
       {recipePosts.map((recipe, index) => (
         <div
           id={`panel-${recipe.id}`}
-          className={`${style.panel} ${
-            selectedTabId === `panel-${recipe.id}` ? style.isShow : ''
-          }`}
+          className={cx(
+            style.panel,
+            selectedTabId === `panel-${recipe.id}` ? style.isShow : '',
+          )}
           role='tabpanel'
           aria-hidden={selectedTabId !== `panel-${recipe.id}`}
           key={index}
