@@ -1,6 +1,6 @@
 import type { Recipe } from '@/api/recipe/types';
 import { StarRate } from '@/components/common/StarRate/StarRate';
-import { Note } from '@/components/domain/recipe/Note';
+import { CookingComment } from '@/components/domain/recipe/CookingComment';
 import { StepList } from '@/components/domain/recipe/StepList';
 import style from '@/components/page/Recipe/Recipe.module.scss';
 import cx from 'classnames';
@@ -55,7 +55,7 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
           )}
 
           {(recipe.materialList?.length ?? 0) >= 1 && (
-            <Note
+            <CookingComment
               serving={recipe.serving}
               materialList={recipe.materialList}
               point={recipe.point}

@@ -2,7 +2,7 @@
 @use '@/styles/variables' as var;
 @use '@/styles/mixins' as mixin;
 
-.note {
+.comment {
   width: 100%;
   max-width: 560px;
   padding: func.em(16) func.em(40) func.em(24) func.em(16);

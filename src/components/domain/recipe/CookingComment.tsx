@@ -1,5 +1,5 @@
 import type { MaterialList } from '@/api/recipe/types';
-import style from './Note.module.scss';
+import style from './CookingComment.module.scss';
 
 interface Props {
   serving?: number;
@@ -7,12 +7,16 @@ interface Props {
   point?: string;
 }
 
-export const Note = ({ serving, materialList, point }: Props): JSX.Element => {
+export const CookingComment = ({
+  serving,
+  materialList,
+  point,
+}: Props): JSX.Element => {
   return (
-    <div className={style.note}>
+    <div className={style.comment}>
       <section>
         <div>
-          <h2 className={style.noteTitle}>
+          <h2 className={style.commentTitle}>
             材料
             <span className={style.serving}>（{serving}人分）</span>
           </h2>
