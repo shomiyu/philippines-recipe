@@ -92,5 +92,6 @@
     font-size: func.fz(12);
     line-height: 1.2;
     margin-top: func.em(4, 12);
+    font-family: var.$font-family-accent;
   }
 }

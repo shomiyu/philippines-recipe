@@ -1,6 +1,10 @@
 @use 'function' as func;
 @use 'palette';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 
 // -------------------------------------------
 // Color Settings
@@ -53,9 +57,12 @@ $font-size-xs: calc(#{$font-size-base} - #{func.fz(4)}); // 12
 // -------------------------------------------
 
 // Typeface
-$base-font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3',
+$font-family-base: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3',
   'Hiragino Kaku Gothic Pro', 'Osaka', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック',
   'MS P Gothic', sans-serif;
+$font-family-title: 'Fascinate';
+$font-family-english: 'Montserrat';
+$font-family-accent: 'Yomogi';
 
 // -------------------------------------------
 // Break Points

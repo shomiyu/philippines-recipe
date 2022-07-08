@@ -1,0 +1,24 @@
+@use '@/styles/function' as func;
+@use '@/styles/variables' as var;
+@use '@/styles/mixins' as mixin;
+
+.header {
+  background-color: var.$base-color-secondary;
+  height: 48px;
+  padding: 0 func.em(24);
+  display: flex;
+  align-items: center;
+
+  @include mixin.mq() {
+    height: 80px;
+    padding: 0 func.em(64);
+  }
+
+  img {
+    width: 56px;
+
+    @include mixin.mq() {
+      width: 94px;
+    }
+  }
+}
