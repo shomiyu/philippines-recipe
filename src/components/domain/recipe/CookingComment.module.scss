@@ -1,0 +1,125 @@
+@use '@/styles/function' as func;
+@use '@/styles/variables' as var;
+@use '@/styles/mixins' as mixin;
+
+.comment {
+  width: 100%;
+  max-width: 560px;
+  padding: func.em(16) func.em(40) func.em(24) func.em(16);
+  margin: func.em(40) auto 0;
+  border: 2px solid;
+  border-radius: 2px;
+  position: relative;
+
+  @include mixin.mq() {
+    padding: func.em(24) func.em(64) func.em(40) func.em(24);
+    margin: func.em(64) auto 0;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 40px;
+    background-image: linear-gradient(
+      to bottom,
+      var.$border-color-main,
+      var.$border-color-main 8px,
+      transparent 8px,
+      transparent 8px
+    );
+    background-size: 1px 12px;
+    background-position: left bottom;
+    background-repeat: repeat-y;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 0;
+    width: 40px;
+    background-image: url('/images/circle.svg');
+    background-repeat: repeat-y;
+    background-size: 60%;
+    background-position: center top;
+  }
+}
+
+.noteTitle {
+  font-size: func.fz(18);
+  margin-bottom: func.em(8, 18);
+
+  @include mixin.mq() {
+    font-size: func.fz(20);
+    margin-bottom: func.em(16, 20);
+  }
+}
+
+.serving {
+  font-size: func.fz(14);
+  font-weight: normal;
+}
+
+.materialList {
+  font-size: func.fz(14);
+  border-top: 3px solid var.$main-color-primary;
+  border-bottom: 3px solid var.$main-color-primary;
+
+  @include mixin.mq() {
+    font-size: func.fz(16);
+  }
+}
+
+.materialListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: func.em(4) func.em(8);
+  min-height: 40px;
+  background-image: linear-gradient(
+    to right,
+    var.$main-color-primary,
+    var.$main-color-primary 8px,
+    transparent 8px,
+    transparent 8px
+  );
+  background-size: 12px 1px;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+
+  @include mixin.mq() {
+    padding: func.em(8) func.em(16);
+  }
+
+  &:last-child {
+    background-image: inherit;
+  }
+
+  &:nth-child(odd) {
+    background-color: var.$base-color-secondary;
+  }
+}
+
+.materialListTitle {
+  flex-basis: 45%;
+}
+
+.materialListAmount {
+  flex-basis: calc(55% - #{func.em(16)});
+}
+
+.point {
+  font-family: var.$font-family-accent;
+  padding: func.em(8) func.em(8) 0;
+
+  @include mixin.mq() {
+    padding: func.em(24) func.em(16) 0;
+  }
+}

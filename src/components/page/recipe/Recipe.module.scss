@@ -1,0 +1,244 @@
+@use '@/styles/function' as func;
+@use '@/styles/variables' as var;
+@use '@/styles/mixins' as mixin;
+
+.mainVisual {
+  img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+
+    @include mixin.mq() {
+      height: 436px;
+    }
+  }
+}
+
+.introductionSection {
+  padding: func.em(40) 0 func.em(64);
+
+  @include mixin.mq() {
+    padding: func.em(80) 0;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 760px;
+  margin: auto;
+  position: relative;
+}
+
+.primaryHeading {
+  font-size: func.fz(28);
+  font-family: var.$font-family-title;
+  text-transform: capitalize;
+  margin-bottom: func.em(16, 28);
+
+  @include mixin.mq() {
+    font-size: func.fz(32);
+    margin-bottom: func.em(40, 32);
+  }
+}
+
+.title {
+  line-height: 1;
+
+  [lang='ja'] {
+    font-size: func.fz(28);
+    line-height: 1.7;
+    display: block;
+    padding-bottom: func.em(4, 28);
+    border-bottom: 1px solid #ddd;
+    margin-bottom: func.em(8, 28);
+
+    @include mixin.mq() {
+      font-size: func.fz(40);
+      padding-bottom: func.em(4, 40);
+      margin-bottom: func.em(8, 40);
+    }
+  }
+
+  [lang='tl'] {
+    font-size: func.fz(14);
+    font-family: var.$font-family-accent;
+    font-weight: normal;
+    line-height: 1;
+    color: var.$text-color-gray;
+    display: inherit;
+    margin-top: func.em(8, 14);
+
+    @include mixin.mq() {
+      font-size: func.fz(18);
+    }
+  }
+}
+
+.metaData {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: func.em(16);
+}
+
+.level {
+  margin-right: func.em(24);
+}
+
+.timeWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-family: var.$font-family-accent;
+  font-size: func.fz(14);
+  display: inline-block;
+  margin-left: func.em(4, 14);
+}
+
+.introduction {
+  margin-top: func.em(40);
+}
+
+// how to cook
+.cookingSection {
+  padding: func.em(40) 0 func.em(120);
+  background-color: var.$base-color-secondary;
+
+  @include mixin.mq() {
+    padding: func.em(64) 0 func.em(120);
+  }
+}
+
+.cookingContainer {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 54px;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+  }
+
+  &::before {
+    background-image: url('/images/clip_purple.svg');
+    top: calc(#{func.em(-64)} - 13px);
+    right: 30px;
+    transform: rotate(-9deg);
+
+    @include mixin.mq() {
+      right: 0;
+    }
+  }
+
+  &::after {
+    background-image: url('/images/clip_light_purple.svg');
+    top: calc(#{func.em(-64)} + 10px);
+    right: 0;
+    transform: rotate(19deg);
+
+    @include mixin.mq() {
+      right: -30px;
+    }
+  }
+}
+
+.tapeNote {
+  display: inline-block;
+  max-width: 320px;
+  width: 85%;
+  position: absolute;
+  bottom: -100px;
+  right: 50%;
+  transform: translate(50%, 100%);
+
+  @include mixin.mq() {
+    right: -15px;
+    transform: translateY(100%);
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 32px;
+    background-color: rgb(255 255 255 / 90%);
+    box-shadow: 0 0 4px rgb(0 0 0 / 12%);
+    position: absolute;
+    z-index: 5;
+  }
+
+  &::before {
+    width: 108px;
+    top: -10px;
+    left: -18px;
+    transform: rotate(-15deg);
+  }
+
+  &::after {
+    width: 120px;
+    bottom: -10px;
+    right: -18px;
+    transform: rotate(-4deg);
+  }
+}
+
+.eatingTextBox {
+  display: inline-block;
+  width: 100%;
+  transform: rotate(2deg);
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var.$key-color-purple;
+    z-index: -1;
+    border: 2px solid;
+    border-radius: 2px;
+    transform: rotate(-2deg);
+  }
+}
+
+.eatingText {
+  display: inline-block;
+  font-family: var.$font-family-accent;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: auto;
+  border: 2px solid;
+  border-radius: 2px;
+  padding: func.em(40) func.em(24);
+  background-color: var.$base-color-primary;
+}
+
+// comment
+.commentSection {
+  padding: func.em(40) 0;
+
+  @include mixin.mq() {
+    padding: func.em(80) 0;
+  }
+
+  &.hasSpace {
+    padding-top: func.em(160);
+  }
+}
+
+.comment {
+  white-space: pre-wrap;
+}

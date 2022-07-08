@@ -2,13 +2,15 @@ import Link from 'next/link';
 import React from 'react';
 import style from './Card.module.scss';
 import type { MicroCMSImage } from 'microcms-js-sdk';
+import { StarRate } from '@/components/common/StarRate/StarRate';
+import cx from 'classnames';
 
 interface Props {
   id: string;
   title: string;
   tagalog: string;
   thumbnail?: MicroCMSImage;
-  level?: string[];
+  level: ['easy' | 'normal' | 'difficult'];
 }
 
 export const Card = ({
@@ -23,7 +25,7 @@ export const Card = ({
       <a className={style.link}>
         <div>
           <figure
-            className={`${style.thumbnail} ${!thumbnail ? style.noimage : ''}`}
+            className={cx(style.thumbnail, !thumbnail ? style.noimage : '')}
           >
             {thumbnail ? (
               <img
@@ -41,7 +43,9 @@ export const Card = ({
               />
             )}
           </figure>
-          {level && <p className={style.level}>{level}</p>}
+          {level.length >= 1 && (
+            <StarRate className={style.level} level={level[0]} />
+          )}
           <div className={style.title}>
             <p className={style.jaTitle}>{title}</p>
             <p lang='tl' className={style.tlTitle}>

@@ -10,22 +10,22 @@ import { useCallback } from 'react';
 
 interface Props {
   category: MicroCMSListResponse<Category>;
-  recipe: MicroCMSListResponse<Recipe>;
+  recipes: MicroCMSListResponse<Recipe>;
 }
 
-export const Top = ({ category, recipe }: Props): JSX.Element => {
+export const Top = ({ category, recipes }: Props): JSX.Element => {
   const recipePosts = category.contents.map((category) => {
     if (category.id !== 'all') {
       return {
         id: category.id,
-        contents: recipe.contents.filter(
+        contents: recipes.contents.filter(
           (data) => data.category?.id === category.id,
         ),
       };
     } else {
       return {
         id: category.id,
-        contents: recipe.contents,
+        contents: recipes.contents,
       };
     }
   });
@@ -95,7 +95,7 @@ export const Top = ({ category, recipe }: Props): JSX.Element => {
       <section className='sectionPrimary'>
         <div className='containerLarge'>
           <div className={style.contentsWrapper}>
-            {recipe.contents.length > 0 && (
+            {recipes.contents.length > 0 && (
               <Tab
                 category={category}
                 selectedTabId={selectedTabId}
