@@ -23,7 +23,7 @@ export const Note = ({ serving, materialList, point }: Props): JSX.Element => {
                 <dd className={style.materialListAmount}>{item.quantity}</dd>
               </div>
             ))}
-            {(materialList?.length ?? 0) % 2 == 0 && (
+            {(materialList?.length ?? 0) % 2 === 0 && (
               <div className={style.materialListItem}>
                 <dt></dt>
                 <dd></dd>

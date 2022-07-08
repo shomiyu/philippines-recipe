@@ -2,7 +2,7 @@ import style from './StarRate.module.scss';
 import cx from 'classnames';
 
 interface Props {
-  level: string;
+  level: 'easy' | 'normal' | 'difficult';
   className?: string;
 }
 

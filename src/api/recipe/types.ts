@@ -20,7 +20,7 @@ export type Recipe = {
   thumbnail?: MicroCMSImage;
   category?: Category & MicroCMSContentId;
   time?: string;
-  level?: string[];
+  level: ['easy' | 'normal' | 'difficult'];
   overview?: string;
   introduction?: string;
   serving?: number;

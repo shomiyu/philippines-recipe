@@ -27,13 +27,15 @@ export const RecipeDetails = ({ recipe }: Props): JSX.Element => {
             <span lang='tl'>{recipe.tagalog}</span>
           </h1>
 
-          {((recipe.level?.length ?? 0) >= 1 || recipe.time) && (
+          {(!!recipe.level.length || recipe.time) && (
             <div className={style.metaData}>
-              <div className={style.level}>
-                <span className='visuallyHidden'>難易度</span>
-                <StarRate level={recipe.level?.toString() ?? 'easy'} />
-              </div>
-              {recipe.time && (
+              {recipe.level.length >= 1 && (
+                <div className={style.level}>
+                  <span className='visuallyHidden'>難易度</span>
+                  <StarRate level={recipe.level[0]} />
+                </div>
+              )}
+              {typeof recipe.time === 'string' && (
                 <p className={style.timeWrapper}>
                   <span className='visuallyHidden'>所要時間</span>
                   <img

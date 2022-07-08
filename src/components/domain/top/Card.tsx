@@ -10,7 +10,7 @@ interface Props {
   title: string;
   tagalog: string;
   thumbnail?: MicroCMSImage;
-  level?: string[];
+  level: ['easy' | 'normal' | 'difficult'];
 }
 
 export const Card = ({
@@ -43,10 +43,9 @@ export const Card = ({
               />
             )}
           </figure>
-          <StarRate
-            className={style.level}
-            level={level?.toString() ?? 'easy'}
-          />
+          {level.length >= 1 && (
+            <StarRate className={style.level} level={level[0]} />
+          )}
           <div className={style.title}>
             <p className={style.jaTitle}>{title}</p>
             <p lang='tl' className={style.tlTitle}>

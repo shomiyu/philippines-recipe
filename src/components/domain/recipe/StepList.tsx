@@ -16,21 +16,12 @@ export const StepList = ({ step }: Props): JSX.Element => {
               <p>{item.text}</p>
             </div>
             <figure className={style.stepThumbnail}>
-              {item.thumbnail?.url ? (
-                <img
-                  src={item.thumbnail?.url}
-                  alt=''
-                  width='246'
-                  height='152'
-                />
-              ) : (
-                <img
-                  src='/images/no_image.jpg'
-                  alt=''
-                  width='246'
-                  height='152'
-                />
-              )}
+              <img
+                src={item.thumbnail?.url ?? '/images/no_image.jpg'}
+                alt=''
+                width='246'
+                height='152'
+              />
             </figure>
           </section>
         </li>
